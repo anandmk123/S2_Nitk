@@ -1,0 +1,227 @@
+\documentclass{beamer}
+\usepackage{adjustbox}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{booktabs}
+
+% Use the Madrid theme for a clean and professional look
+\usetheme{Madrid}
+
+% Title and Author information
+\title{Career Recommendation System for 10th Grade Students}
+\subtitle{}
+\author{
+	\textbf{ANAND M K} \\ % Author
+	Roll Number: 242CS008 \\ % Roll number
+}
+\institute{
+	Department of Computer Science and Engineering \\ 
+	National Institute of Technology Karnataka (NITK) \\ 
+	Surathkal, India
+}
+
+\date{} % Remove the date or keep it empty
+
+% Remove the footer that displays names
+\setbeamertemplate{footline}{}
+
+% Change the color of the title text to white
+\setbeamercolor{title}{fg=white}
+
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+
+\begin{frame}{Objective}
+    \begin{itemize}
+        \item To develop a personalized career recommendation system for 10th-grade students.
+        \item The system considers:
+        \begin{itemize}
+            \item Academic performance in subjects like:
+            Physics, Chemistry, Mathematics, Biology, English, Social Science.
+            \item Personality traits and personal interests.
+        \end{itemize}
+        \item Recommendations include:
+        \begin{itemize}
+            \item Career options.
+            \item +2 stream.
+            \item Degree programs.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Data Collection}
+    \begin{itemize}
+        \item Gather data on:
+        \begin{itemize}
+            \item \textbf{Academic performance}: Collect subject-wise scores in:
+            \begin{itemize}
+                \item Physics, Chemistry, Mathematics, Biology, English, and Social Science.
+                \item Focus on identifying strengths in specific subjects.
+            \end{itemize}
+            \item \textbf{Personality traits}: Use psychometric tests like:
+            \begin{itemize}
+                \item The Big Five personality test (measures openness, conscientiousness, etc.).
+                \item Holland Codes (RIASEC model for career-oriented traits).
+            \end{itemize}
+            \item \textbf{Personal interests}: Design surveys or questionnaires to identify:
+            \begin{itemize}
+                \item Hobbies and extracurricular activities (e.g., coding, writing, sports).
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Content-Based Filtering for Career Recommendation}
+    \begin{itemize}
+        \item Content-based filtering recommends careers to students based on the features of both students and careers.
+        \item \textbf{How It Works:}
+        \begin{itemize}
+            \item Career profiles are created by defining the features such as:
+            \begin{itemize}
+                \item Academic requirements (subject marks).
+                \item Personality traits (e.g., openness, conscientiousness).
+                \item Personal interests (e.g., hobbies, career aspirations).
+            \end{itemize}
+            \item Student profiles are collected based on:
+            \begin{itemize}
+                \item Marks in various subjects.
+                \item Personality traits (from psychometric tests).
+                \item Interests (from surveys or questionnaires).
+            \end{itemize}
+            \item The system calculates the similarity between student profiles and career profiles using similarity metrics.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Steps in Content-Based Filtering}
+    \begin{itemize}
+        \item \textbf{Step 1: Create Career Profiles:}
+        \begin{itemize}
+            \item Define career features based on subject requirements, personality traits, and interests.
+            \item Example: Software Engineer career profile.
+        \end{itemize}
+        \item \textbf{Step 2: Collect Student Data:}
+        \begin{itemize}
+            \item Collect marks in subjects like Physics, Maths, Chemistry, Biology.
+            \item Collect personality traits and interests.
+        \end{itemize}
+        \item \textbf{Step 3: Similarity Calculation:}
+        \begin{itemize}
+            \item Calculate the similarity between the student's profile and each career profile.
+            \item Use similarity metrics such as cosine similarity or Euclidean distance.
+        \end{itemize}
+        \item \textbf{Step 4: Recommend Top Careers:}
+        \begin{itemize}
+            \item Rank careers based on similarity scores.
+            \item Recommend the top careers to the student.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Career Profile Example}
+    \begin{itemize}
+        \item \textbf{Career Profile: Software Engineer}
+        \begin{itemize}
+            \item \textbf{Subject Requirements:} High scores in Maths.
+            \item \textbf{Personality Traits:} High analytical thinking, problem-solving skills, and conscientiousness.
+            \item \textbf{Interests:} Coding, software development, AI, and technology.
+        \end{itemize}
+        \item \textbf{Student Profile Example:}
+        \begin{itemize}
+            \item \textbf{Marks:} Maths = 85, Physics = 80, Chemistry = 70.
+            \item \textbf{Personality Traits:} Analytical, problem-solving, detail-oriented.
+            \item \textbf{Interests:} Interest in programming and technology.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Similarity Calculation}
+    \begin{itemize}
+        \item The system computes the similarity between the student's profile and the career profile using cosine similarity.
+        \item \textbf{Cosine Similarity Formula:}
+        \[
+        \text{Similarity} = \frac{\vec{A} \cdot \vec{B}}{|\vec{A}| \cdot |\vec{B}|}
+        \]
+        Where \( \vec{A} \) and \( \vec{B} \) are the student and career feature vectors, respectively.
+        \item \textbf{Example:}
+        \begin{itemize}
+            \item Student Profile: [85, 80, 70, 0.8, 0.7, 0.6] (marks + personality traits).
+            \item Career Profile: [80, 75, 60, 0.9, 0.8, 0.7] (subject requirements + personality traits).
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Recommendation Output}
+    \begin{itemize}
+        \item The system computes similarity scores for all career profiles and ranks them.
+        \item The top careers are recommended to the student.
+        \item \textbf{Example Output:}
+        \begin{enumerate}
+            \item \textbf{Software Engineer:} Similarity score = 0.85.
+            \item \textbf{Data Scientist:} Similarity score = 0.80.
+            \item \textbf{Mechanical Engineer:} Similarity score = 0.75.
+        \end{enumerate}
+        \item The career with the highest similarity is recommended as the top career.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Career Path Recommendation (Part 1)}
+    \begin{itemize}
+        \item
+        Guide students on the educational path required to achieve their chosen career.
+
+        \item \textbf{Components of the Pathway:}
+        \begin{itemize}
+            \item \textbf{+2 Stream:}
+            \item Suggest the ideal stream for Grade 12 based on the chosen career.
+            \item Examples:
+            \begin{itemize}
+                \item \textbf{Software Engineer:} Science Stream with Maths and Computer Science.
+                \item \textbf{Doctor:} Science Stream with Biology, Chemistry, and Physics.
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Career Path Recommendation (Part 2)}
+    \begin{itemize}
+        \item \textbf{Undergraduate Degree:}
+        Recommend degree programs based on the chosen career. Examples:
+        \begin{itemize}
+            \item \textbf{Software Engineer:} B.Tech in Computer Science or IT.
+            \item \textbf{Doctor:} MBBS, followed by specialization.
+        \end{itemize}
+
+        \item \textbf{Additional Requirements:}
+        Highlight any entrance exams or certifications. Examples:
+        \begin{itemize}
+            \item \textbf{Software Engineer:} Coding bootcamps, internships at tech companies.
+            \item \textbf{Doctor:} NEET exam for medical college admission.
+        \end{itemize}
+
+        \item \textbf{Output: Career Path:}
+        Example for Software Engineer:
+        \begin{enumerate}
+            \item +2 Stream: Science with Maths and Computer Science.
+            \item Degree: B.Tech in Computer Science or IT.
+            \item Additional: Competitive programming, internships, certifications.
+        \end{enumerate}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\centering
+\Huge
+\textbf{Thank You!}
+
+\vspace{2cm}
+\end{frame}
+
+
+\end{document}
+
