@@ -1,0 +1,269 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{titlesec}
+
+% Title and section formatting
+\titleformat{\section}{\large\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{1em}{}
+
+% Beamer theme
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{footline}{}
+% Title slide
+\title{A Systematic Literature Review on Datasets for Deepfake Images in Smart Cities}
+\author{ANAND M K \\ National Institute of Technology Karnataka, Surathkal \\ \texttt{242CS008}}
+\date{}
+
+\begin{document}
+
+% Title slide
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% Abstract slide
+\begin{frame}
+    \frametitle{Abstract}
+    \begin{itemize}
+        \item Deepfake image datasets are critical for developing robust detection systems in smart cities.
+        \item This review systematically examines:
+            \begin{itemize}
+                \item Key datasets: DFDC, DeeperForensics, FaceForensics++, DeepfakeTIMIT, UADFV.
+                \item Deepfake generation techniques: GANs, Autoencoders, and hybrid models.
+                \item Preprocessing methods: Data augmentation, feature extraction, artifact analysis.
+                \item Detection methods: CNNs, RNNs, and hybrid models.
+            \end{itemize}
+        \item Challenges: Dataset biases, generalization issues, real-time processing requirements.
+    \end{itemize}
+\end{frame}
+
+% Introduction slide
+\begin{frame}
+    \frametitle{Introduction}
+    \begin{itemize}
+        \item \textbf{Deepfake Technology:}
+            \begin{itemize}
+                \item Rapid advancements in AI and deep learning enable the creation of highly realistic synthetic images and videos.
+                \item Applications: Entertainment, education, accessibility.
+                \item Risks: Identity theft, misinformation, unauthorized access.
+            \end{itemize}
+        \item \textbf{Smart Cities:}
+            \begin{itemize}
+                \item Rely on IoT, AI, and big data analytics for urban infrastructure and services.
+                \item Vulnerabilities: Surveillance systems, authentication protocols, public information dissemination.
+            \end{itemize}
+        \item \textbf{Need for Detection:}
+            \begin{itemize}
+                \item High-quality datasets are essential for training and evaluating detection models.
+                \item Current datasets: DFDC, FaceForensics++, DeeperForensics-1.0, DF-TIMIT, UADFV.
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Method slide
+\begin{frame}
+    \frametitle{Method}
+    \begin{itemize}
+        \item \textbf{Literature Search Procedure:}
+            \begin{itemize}
+                \item Databases: ScienceDirect, IEEE Xplore, ACM Digital Library.
+                \item Keywords: "deepfake detection," "image dataset," "smart city surveillance."
+            \end{itemize}
+        \item \textbf{Research Problems:}
+            \begin{itemize}
+                \item Focus on smart city security, deepfake detection, and dataset creation methodologies.
+                \item Inclusion criteria: Experimental studies, surveys, observational studies.
+            \end{itemize}
+        \item \textbf{Search Strategy:}
+            \begin{itemize}
+                \item Boolean operators: AND, OR.
+                \item Search string: "deepfake detection" AND "image dataset" AND "smart city surveillance."
+            \end{itemize}
+        \item \textbf{Selection of Studies:}
+            \begin{itemize}
+                \item Data extraction: Authors, publication year, dataset details, detection methods.
+                \item Analysis: Comparative evaluation of datasets and detection techniques.
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% DFDC Dataset slide
+\begin{frame}
+    \frametitle{DeepFake Detection Challenge (DFDC) Dataset}
+    \begin{itemize}
+        \item \textbf{Overview:}
+            \begin{itemize}
+                \item Largest and most diverse deepfake video dataset.
+                \item Contains over 100,000 video clips from 3,426 actors.
+            \end{itemize}
+        \item \textbf{Generation Methods:}
+            \begin{itemize}
+                \item Deepfake Autoencoder (DFAE): Shared encoder with two decoders.
+                \item MM/NN Face Swap: Custom morphable-mask model.
+                \item Neural Talking Heads (NTH): Meta-learning approach.
+                \item FSGAN: GAN-based face swapping and reenactment.
+            \end{itemize}
+        \item \textbf{Augmentations:}
+            \begin{itemize}
+                \item Distractors: Overlay objects like images, shapes, and text.
+                \item Augmenters: Geometric, color, and framerate transformations.
+            \end{itemize}
+        \item \textbf{Detection Methods:}
+            \begin{itemize}
+                \item Efficient ViT, Convolutional Cross ViT.
+                \item Pre-extraction of faces using MTCNN.
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% FaceForensics++ Dataset slide
+\begin{frame}
+    \frametitle{FaceForensics++ Dataset}
+    \begin{itemize}
+        \item \textbf{Overview:}
+            \begin{itemize}
+                \item Standardized benchmark for facial manipulation detection.
+                \item Contains 5,000 videos with real and manipulated content.
+            \end{itemize}
+        \item \textbf{Manipulation Methods:}
+            \begin{itemize}
+                \item FaceSwap: Graphics-based face region transfer.
+                \item DeepFakes: Neural network-based face replacement.
+                \item Face2Face: Facial reenactment.
+                \item NeuralTextures: Neural texture-based rendering.
+            \end{itemize}
+        \item \textbf{Postprocessing:}
+            \begin{itemize}
+                \item Simulates video quality degradation using H.264 compression.
+                \item Two levels: High-quality (HQ) and low-quality (LQ).
+            \end{itemize}
+        \item \textbf{Detection Methods:}
+            \begin{itemize}
+                \item Handcrafted features: Steganalysis with SVM.
+                \item Learned features: CNNs, XceptionNet, MesoInception-4.
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% DeeperForensics-1.0 Dataset slide
+\begin{frame}
+    \frametitle{DeeperForensics-1.0 Dataset}
+    \begin{itemize}
+        \item \textbf{Overview:}
+            \begin{itemize}
+                \item Largest face forgery detection dataset: 60,000 videos, 17.6 million frames.
+                \item Focus on real-world perturbations for robustness.
+            \end{itemize}
+        \item \textbf{Generation Framework:}
+            \begin{itemize}
+                \item DeepFake Variational Auto-Encoder (DF-VAE).
+                \item Disentangles structure (expression, pose) from appearance (texture, skin color).
+                \item Masked Adaptive Instance Normalization (MAdaIN) for style mismatch.
+            \end{itemize}
+        \item \textbf{Diversity:}
+            \begin{itemize}
+                \item 100 actors with varied genders, ages, skin tones, and nationalities.
+                \item Professional indoor setting with diverse lighting and camera perspectives.
+            \end{itemize}
+        \item \textbf{Detection Methods:}
+            \begin{itemize}
+                \item Image-level: Xception-Net.
+                \item Video-level: C3D, TSN.
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% DF-TIMIT Dataset slide
+\begin{frame}
+    \frametitle{DF-TIMIT Dataset}
+    \begin{itemize}
+        \item \textbf{Overview:}
+            \begin{itemize}
+                \item Created using GANs on VidTIMIT database.
+                \item Contains 640 videos (low and high quality).
+            \end{itemize}
+        \item \textbf{Generation Process:}
+            \begin{itemize}
+                \item Low-quality (LQ): 64x64 face regions, 200 frames at 4 fps.
+                \item High-quality (HQ): 128x128 face regions, 400 frames at 8 fps.
+                \item Blending techniques: CNN-based segmentation (LQ), landmark alignment (HQ).
+            \end{itemize}
+        \item \textbf{Detection Methods:}
+            \begin{itemize}
+                \item Lip-syncing detection: MFCCs, LSTM.
+                \item Image-based systems: PCA+LDA, IQM+SVM.
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% UADFV Dataset slide
+\begin{frame}
+    \frametitle{UADFV Dataset}
+    \begin{itemize}
+        \item \textbf{Overview:}
+            \begin{itemize}
+                \item Comprises 49 real and 49 Deepfake videos.
+                \item Average duration: 11.14 seconds, resolution: 294×500 pixels.
+            \end{itemize}
+        \item \textbf{Detection Method:}
+            \begin{itemize}
+                \item 3D head pose inconsistencies.
+                \item Features extracted using DLib and OpenFace2.
+                \item SVM classifiers for final classification.
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Quantitative Comparison slide
+\begin{frame}
+    \frametitle{Quantitative Comparison of Deepfake Datasets}
+    \begin{table}[ht]
+        \centering
+        \caption{Quantitative comparison of various Deepfake datasets}
+        \begin{tabular}{lccc}
+            \toprule
+            \textbf{Dataset} & \textbf{Unique fake videos} & \textbf{Total videos} & \textbf{Total subjects} \\ 
+            \midrule
+            DF-TIMIT         & 640     & 960     & 43   \\
+            UADFV            & 49      & 49      & 49   \\
+            FF++ DF          & 4,000   & 5,000   & ?    \\
+            DeeperForensics-1.0 & 1,000 & 60,000  & 100  \\
+            DFDC             & 104,500 & 128,154 & 960  \\
+            \bottomrule
+        \end{tabular}
+        \label{tab:deepfake_comparison}
+    \end{table}
+\end{frame}
+
+% Conclusion slide
+\begin{frame}
+    \frametitle{Conclusion}
+    \begin{itemize}
+        \item \textbf{Dataset Evolution:}
+            \begin{itemize}
+                \item Early datasets: UADFV, DF-TIMIT (small-scale, limited diversity).
+                \item Second-generation: FaceForensics++ (higher quality, ethical considerations).
+                \item Third-generation: DeeperForensics-1.0, DFDC (large-scale, diverse, robust).
+            \end{itemize}
+        \item \textbf{Challenges:}
+            \begin{itemize}
+                \item Dataset biases, generalization issues, real-time processing.
+            \end{itemize}
+        \item \textbf{Future Directions:}
+            \begin{itemize}
+                \item Improve dataset diversity and ethical compliance.
+                \item Develop scalable and real-time detection systems.
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+
+
+\end{document}

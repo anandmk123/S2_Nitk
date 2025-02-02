@@ -1,0 +1,68 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{booktabs}
+
+% Set page margins
+\geometry{margin=1in}
+
+% Title
+\title{Dataset Details and References}
+\author{ANAND M K \\ \texttt{242CS008}}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+% Dataset Details
+\section*{Dataset Details}
+
+\begin{table}[ht]
+    \centering
+    \caption{Summary of Deepfake Datasets}
+    \begin{tabular}{lp{8cm}l}
+        \toprule
+        \textbf{Dataset} & \textbf{Description} & \textbf{Reference} \\
+        \midrule
+        \textbf{DFDC} & Largest and most diverse deepfake video dataset with over 100,000 clips. Includes multiple generation methods like \textbf{DFAE (Deepfake Autoencoder)}, \textbf{MM/NN (Morphable Mask/Neural Network)}, \textbf{NTH (Neural Talking Heads)}, and \textbf{FSGAN (Face Swapping GAN)}. & \cite{dolhansky2020deepfakedetectionchallengedfdc} \\
+        \textbf{FaceForensics++} & Standardized benchmark for facial manipulation detection. Contains 5,000 videos with real and manipulated content using FaceSwap, DeepFakes, Face2Face, and NeuralTextures. & \cite{Rossler_2019_ICCV} \\
+        \textbf{DeeperForensics-1.0} & Largest face forgery detection dataset with 60,000 videos. Uses \textbf{DF-VAE (DeepFake Variational Auto-Encoder)} for high-quality face swapping and includes diverse real-world perturbations. & \cite{jiang2020deeperforensics} \\
+        \textbf{DF-TIMIT} & Created using GANs on VidTIMIT database. Contains 640 videos (low and high quality) with blending techniques like CNN-based segmentation and landmark alignment. & \cite{Korshunov_2018} \\
+        \textbf{UADFV} & Comprises 49 real and 49 Deepfake videos. Detection based on 3D head pose inconsistencies using DLib and OpenFace2. & \cite{DBLP} \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:dataset_summary}
+\end{table}
+
+% References
+\section*{References}
+\begin{thebibliography}{9}
+    \bibitem{dolhansky2020deepfakedetectionchallengedfdc} 
+    Brian Dolhansky, Joanna Bitton, Ben Pflaum, Jikuo Lu, Russ Howes, Menglin Wang, Cristian Canton Ferrer, 
+    \emph{The DeepFake Detection Challenge (DFDC) Dataset}, 
+    2020.
+
+    \bibitem{Rossler_2019_ICCV}
+    Andreas Rossler, Davide Cozzolino, Luisa Verdoliva, Christian Riess, Justus Thies, Matthias Niessner, 
+    \emph{FaceForensics++: Learning to Detect Manipulated Facial Images}, 
+    2019.
+
+    \bibitem{jiang2020deeperforensics} 
+    L. Jiang, R. Li, W. Wu, C. Qian and C. C. Loy, 
+    \emph{DeeperForensics-1.0: A Large-Scale Dataset for Real-World Face Forgery Detection}, 
+    2020.
+
+    \bibitem{Korshunov_2018}
+    Pavel Korshunov and S{\'{e}}bastien Marcel, 
+    \emph{DeepFakes: a New Threat to Face Recognition? Assessment and Detection}, 
+    2018.
+
+    \bibitem{DBLP}
+    Xin Yang, Yuezun Li, and Siwei Lyu,
+    \emph{Exposing Deep Fakes Using Inconsistent Head Poses}, 
+    2018.
+\end{thebibliography}
+
+\end{document}
